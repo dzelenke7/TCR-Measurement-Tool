@@ -40,21 +40,21 @@ void loop()
 
   lcd.setCursor(0, 0);                                // set the cursor to column 0, line 0
   lcd.print("Temp: ");                                // Print a message of "Temp: "to the LCD.
-                                                      // Print a centigrade temperature to the LCD.
+                                                      
   lcd.print(tempC);
                                                       // Print the unit of the centigrade temperature to the LCD.
   lcd.print(char(223));//print the unit" ℃ "
   lcd.print("C");
-                                                       // (note: line 1 is the second row, since counting begins with 0):
+                                                      
   lcd.setCursor(0, 1);                                // set the cursor to column 0, line 1
-  lcd.print("Fahr: ");                                
-  lcd.print(tempF);                                   // Print a Fahrenheit temperature to the LCD.
-  lcd.print(" F");                                    // Print the unit of the Fahrenheit temperature to the LCD.
+  lcd.print("Resistance: ");                                
+  lcd.print(R_test);                                   // Print a Fahrenheit temperature to the LCD.
+  lcd.print(" Ω");                                    
 
   Serial.println(tempC);
   Serial.println(R_test);
   Serial.println(R_therm);
 
-  delay(200);                                         //wait for 100 milliseconds
+  delay(200);                                         
 }
 
