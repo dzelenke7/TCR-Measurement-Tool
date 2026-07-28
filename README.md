@@ -47,11 +47,14 @@ Where B = 3950 (Beta constant), R₀ = 10,000Ω (thermistor resistance at
 10K thermistor specifications.
 ## Hardware
  - Arduino Uno R3
- - 3 33kΩ Resistors
- - NTC 10K Thermistor
- - 10K Potentiometer
- - 1k Resistor
- - QAPASS LCD
+ - 2 33kΩ Resistors (voltage divider references for test resistor and thermistor circuits)
+ - 1 test Resistor (33kΩ carbon film used in this project, but any resistor can be tested)
+ - NTC 10K Thermistor (Should be in contact with Test Resistor)
+ - 10K Potentiometer (LCD contrast adjustment)
+ - 1k Resistor (LCD backlight current limiter)
+ - QAPASS 16x2 LCD Display
+ - Breadboard and Jumper wires
+ - Heat source (Hair Dryer recommended for 40°C+ temperature range)
    
 ## Software
 
