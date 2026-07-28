@@ -90,7 +90,7 @@ For my first test I used my fingers to generate the heat. This created a tempera
 For my second test I used a Hair Dryer to generate the heat. This created a temperature range of ~24°C - 67°C.
 
 ![Hair Dryer Heat Source](tcr-second-measurement.png)
-TCR = -176.9 ppm/C
+   TCR = -176.9 ppm/C
 
 A negative TCR is characteristic of carbon film resistors, where increased 
 thermal energy reduces carrier mobility and therefore resistance. This finding 
