@@ -57,10 +57,29 @@ Where B = 3950 (Beta constant), R₀ = 10,000Ω (thermistor resistance at
  - Heat source (Hair Dryer recommended for 40°C+ temperature range)
    
 ## Software
-
 ### Arduino Sketch
+Reads raw ADC values from two analog pins and uses the voltage divider 
+equation to back-calculate the resistance of the test resistor and the 
+thermistor. Converts thermistor resistance to temperature using the Beta 
+equation, outputting both Celsius and Fahrenheit. Displays live temperature 
+and resistance readings on the 16x2 LCD and transmits tempC, R_test, and 
+R_therm over serial at 9600 baud every 200ms.
 
 ### Python Script
+Establishes a serial connection with the Arduino and continuously reads 
+tempC, R_test, and R_therm into three lists until interrupted with Ctrl+C. 
+Upon termination, fits a linear regression to the R_test vs tempC data using 
+numpy, extracts TCR from the slope, prints the result, and plots resistance 
+vs temperature with the measured data points and fitted line overlaid.
+
+**Libraries used:**
+- pyserial --> serial communication with Arduino
+- matplotlib --> data plotting
+- numpy --> linear regression and array operations
+- time --> serial connection delay on startup
+
+**Arduino Libraries:**
+- LiquidCrystal.h --> LCD display control
 
 ## Results
 
