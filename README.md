@@ -124,7 +124,7 @@ captures the underlying TCR behavior accurately.
 - A0: Junction of R_ref1 and R_test
 - A1: Junction of R_ref2 and R_therm
 
-![tcr-sketch](tcr-sketch.pdf)
+![tcr-sketch](tcr-sketch.png)
 
 ### Running the Project
 
