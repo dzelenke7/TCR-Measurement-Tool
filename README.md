@@ -108,3 +108,43 @@ the per-degree resistance change expected from TCR. Despite this quantization
 limit, the downward trend across bands is consistent and the linear fit 
 captures the underlying TCR behavior accurately.
 ## How to Run
+### Arduino Wiring
+- Analog 0: Between R_ref1 and R_test
+- Analog 1: Between R_ref2 and R_therm
+- Digital 4: RS (LCD)
+- Digital 6: E (LCD)
+- Digital 10: D4 (LCD)
+- Digital 11: D5 (LCD)
+- Digital 12: D6 (LCD)
+- Digital 13: D7 (LCD)
+
+### Resistor Divider
+- 5V: Top of R_ref1 and R_ref2
+- GND: Bottom of R_test and R_therm
+- A0: Junction of R_ref1 and R_test
+- A1: Junction of R_ref2 and R_therm
+
+![tcr-sketch](tcr-sketch.png)
+
+### Running the Project
+
+1.**Upload the Arduino sketch:** Open `tcr-arduino-sketch.ino` in the Arduino 
+  IDE, select your board (Arduino Uno) and COM port under Tools, then click 
+  Upload. The Arduino will begin measuring raw ADC values and printing Temperature in C, Test Resistance, Thermistor Resistance. 
+
+2. **Run the Python script:** Close the Arduino Serial Monitor (it locks the 
+   COM port), then run `TCR_measurement_tool.py` from a terminal (I used IDLE) in the 
+   project folder. Update the COM port in the script if it differs from 
+   your COM. The script will read live data from the Arduino and print it to the 
+   terminal in real time.
+
+3. **Expected output:** When running correctly, the live serial script 
+   prints a Temperature in C, Test Resistance, and Thermistor Resistance,
+   reading every 200ms. Python then produces a graph with either a positive
+   slope/TCR (metal film resistors) or negative slope/TCR (carbon film resistors)
+
+4. **TCR Result:** Upon Ctrl+C the script prints the calculated TCR value 
+   in ppm/°C to the terminal. A negative value indicates carbon film 
+   behavior, a positive value indicates metal film behavior.
+
+   
