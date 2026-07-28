@@ -82,5 +82,29 @@ vs temperature with the measured data points and fitted line overlaid.
 - LiquidCrystal.h --> LCD display control
 
 ## Results
+### Test on 33kΩ Resistor
+For my first test I used my fingers to generate the heat. This created a temperature range of ~24°C - 40°C.
 
+![Fingers Heat Source](tcr-first-measurement.png)
+
+For my second test I used a Hair Dryer to generate the heat. This created a temperature range of ~24°C - 67°C.
+
+![Hair Dryer Heat Source](tcr-second-measurement.png)
+TCR = -176.9 ppm/C
+
+A negative TCR is characteristic of carbon film resistors, where increased 
+thermal energy reduces carrier mobility and therefore resistance. This finding 
+is notable because the resistors used were listed as "metal film" in their 
+product specifications. Metal film resistors typically exhibit a positive or 
+near-zero TCR of ±15 to ±100 ppm/°C. The measured -176.9 ppm/°C suggests 
+the product specification is inaccurate, a finding that demonstrates the 
+value of real, measured characterization over datasheet trust. 
+
+The resistance data shows discrete horizontal banding rather than a smooth 
+continuous curve, which is a direct consequence of the Arduino Uno's 10-bit 
+ADC resolution. Each ADC step represents approximately 4.9mV, which at the 
+operating resistance range translates to roughly 150Ω per step, larger than 
+the per-degree resistance change expected from TCR. Despite this quantization 
+limit, the downward trend across bands is consistent and the linear fit 
+captures the underlying TCR behavior accurately.
 ## How to Run
